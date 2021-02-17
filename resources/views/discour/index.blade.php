@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="cal-md-12 p-3" style="text-align: end;">
-    <a class="btn btn-primary f-right" href="#"><i class="fas fa-plus"></i> Ajouter</a>
+    <a class="btn btn-primary f-right" href="{{route('discour.create')}}"><i class="fas fa-plus"></i> Ajouter</a>
 </div>
 <div class="cal-md-12 mt-4">
     <table id="example" class="table table-hover">
