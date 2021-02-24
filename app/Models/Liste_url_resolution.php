@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Discour extends Model
+class Liste_url_resolution extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $primaryKey = 'Id_Discours';
 }

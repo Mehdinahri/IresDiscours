@@ -67,31 +67,38 @@
 <div class="col-md-4">
     <a href="{{route('discour.index')}}">
         <div class="card-counter primary">
-        <i class="fas fa-archway"></i>
-        <span class="count-numbers">12</span>
+        <i class="fas fa-scroll"></i>
+        <span class="count-numbers">{{$discour}}</span>
         <span class="count-name">Discours</span>
         </div>
     </a>
   </div>
 
   <div class="col-md-4">
-    <a href="#"></a>
+    <a href="{{route('listeUrl.index')}}">
         <div class="card-counter danger">
         <i class="fas fa-link"></i>
-        <span class="count-numbers">599</span>
+        <span class="count-numbers">{{$url}}</span>
         <span class="count-name">Discours URL</span>
         </div>
     </a>
   </div>
 
   <div class="col-md-4">
-      <a href="#">
+      <a href="{{route('sahara.index')}}">
         <div class="card-counter success">
-        <i class="fa fa-database"></i>
-        <span class="count-numbers">6875</span>
+        <i class="fa fa-hourglass-start"></i>
+        <span class="count-numbers">{{$sahara}}</span>
         <span class="count-name">Discours Sahara</span>
         </div>
       </a>
   </div>
 </div>
+@endsection
+@section('js')
+<script>
+  $(document).ready(function(){
+  $("#Home").addClass("active");
+});
+</script>
 @endsection

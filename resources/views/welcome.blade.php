@@ -9,7 +9,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <style type="text/css">
             body {
-                background: linear-gradient(132deg, #f44336, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3,#03A9F4, #00BCD4, #009688, #4CAF50, #FFC107, #FF9800, #f44336, #E91E63, #9C27B0, #673AB7, #3F51B5, #2196F3,#03A9F4, #00BCD4, #009688, #4CAF50, #FFC107, #FF9800);
+                background: linear-gradient(132deg, #a3182a, #e37785, #bab6b6, #212529);
                 background-size: 400% 400%;
                 animation: BackgroundGradient 30s ease infinite;
             }
@@ -27,11 +27,11 @@
 }
 .arkalogin
 {
-    width: 300px;
+    width: 500px;
     text-align: center;
     background: #fff;
-    height: 300px;
-    padding: 10px;
+    padding: 30px;
+    border-radius: 19px;
     margin: 50px auto;
 }
 .loginbaslik
@@ -57,14 +57,17 @@
     margin-top: 10px;
     height: 40px;
     font-weight: bold;
-    background: #2196F3;
+    background: rgb(158,4,38);
+    background: linear-gradient(0deg, rgba(158,4,38,1) 10%, rgba(2,0,36,1) 100%, rgba(55,0,255,1) 100%);
     border: none;
     color: #fff;
     transition: all 250ms;
+    cursor: pointer;
 }
 .butonlogin:hover
 {
-    background: #1E88E5;
+    background: rgb(158,4,38);
+    background: linear-gradient(180deg, rgba(158,4,38,1) 10%, rgba(2,0,36,1) 100%, rgba(55,0,255,1) 100%);
 }
 body
 {
@@ -90,7 +93,7 @@ body
     <div style="background-image: url(images/arka.jpg); background-attachment: fixed; background-size: cover; width: 100%; height: 100vh; position: relative;">
     <div class="baslik">
         <b style="font-size: 101px; text-align: center; margin-bottom: -21px; display: block;">IRES</b>
-        <span style="font-size: 19px; text-align: center; display: block; margin-bottom: 25px;">Discours Gestion</span>
+        <span style="font-size: 19px; text-align: center; display: block; margin-bottom: 25px;">Gestion Discours</span>
     </div>
     <section>
     <form method="POST" action="{{ route('login') }}">

@@ -5,15 +5,15 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/dashboard">Accueil</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Discours</li>
+          <li class="breadcrumb-item active" aria-current="page">Discours Sahara</li>
         </ol>
       </nav>
     <div class="row">
         <div class="col-md-4 col-sm-6 col-12 info-box">
-          <span class="info-box-icon text-light bg-primary"><i class="fas fa-scroll"></i></span>
+          <span class="info-box-icon text-light bg-success"><i class="fas fa-hourglass-start"></i></span>
 
           <div class="info-box-content">
-            <span class="info-box-text">Discours</span>
+            <span class="info-box-text">Discours Sahara</span>
             <span class="info-box-number">{{ count($discours) }}</span>
           </div>
           <!-- /.info-box-content -->
@@ -22,23 +22,22 @@
         <div class="col-md-4 col-sm-6 col-12">
         </div>
         <div class="col-md-4 col-sm-6 col-12 text-right">
-            <a class="btn btn-primary f-right" href="{{route('discour.create')}}"><i class="fas fa-plus"></i> Ajouter</a>
+            <a class="btn btn-primary f-right" href="{{route('sahara.create')}}"><i class="fas fa-plus"></i> Ajouter</a>
         </div>
-    </div>    
+    </div>
 </div>
 @if(Session::has('success'))
 
-        <div class="alert alert-success" role="alert" style="margin: 1%; width:100%">
+<div class="alert alert-success" role="alert" style="margin: 1%; width:100%">
 
-            {{Session::get('success')}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-        </div>
+    {{Session::get('success')}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+</div>
 
-    @endif
+@endif
 <div class="cal-md-12 mt-4" style=" border: 1px solid #f2dbdf; padding: 1%; border-radius: 6px; ">
-    
     <table id="example" class="table table-hover">
         <thead>
             <tr>
@@ -52,16 +51,16 @@
         <tbody>
             @foreach ($discours as $discour)
                 <tr>
-                    <td>{{$discour->Id_Discours}} </td>
-                    <td>{{$discour->Type}}</td>
+                    <td>{{$discour->id_discours }} </td>
+                    <td>{{$discour->type_d}}</td>
                     <td>{{substr($discour->Occasion, 0, 50)}}...</td>
-                    <td>{{$discour->Date_disc}}</td>
+                    <td>{{$discour->Date}}</td>
                     <td>
-                        <form role="form" action="{{ url("/discour/$discour->Id_Discours") }}" method="post" id='form{{$discour->Id_Discours}}'>
+                        <form role="form" action="{{ url("/sahara/$discour->id_discours") }}" method="post" id='form{{$discour->id_discours}}'>
                             @csrf
                             @method("DELETE")
-                            <a class="btn btn-danger btn-sm text-light" onclick="deleteConfirmation({{ $discour->Id_Discours }})"><i class="fas fa-trash-alt"></i> Supprimer</a>
-                            <a class ="btn btn-info btn-sm text-light" href="{{route('discour.edit',$discour)}}"><i class="fas fa-edit"></i> Modifier</a>
+                            <a class="btn btn-danger btn-sm text-light" onclick="deleteConfirmation({{ $discour->id_discours }})"><i class="fas fa-trash-alt"></i> Supprimer</a>
+                            <a class ="btn btn-info btn-sm text-light" href="{{ url("/sahara/$discour->id_discours/edit") }}"><i class="fas fa-edit"></i> Modifier</a>
                         </form>
                     </td>
                 </tr>
@@ -110,9 +109,9 @@
     }
 </script>
 <script>
-$(document).ready(function(){
+    $(document).ready(function(){
     $(".nav-link").removeClass("active");
-    $("#Discours").addClass("active");
+    $("#Sahara").addClass("active");
 });
 </script>
 @endsection

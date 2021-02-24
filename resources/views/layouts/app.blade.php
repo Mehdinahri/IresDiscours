@@ -9,6 +9,49 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <style>
+      .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+          border-bottom: 1px solid rgba(0,0,0,.9);
+      }
+      .info-box {
+          box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+          border-radius: .25rem;
+          background: #fff;
+          display: -ms-flexbox;
+          display: flex;
+          margin-bottom: 1rem;
+          min-height: 80px;
+          padding: .5rem;
+          position: relative;
+      }
+      .info-box .info-box-icon {
+          border-radius: .25rem;
+          -ms-flex-align: center;
+          align-items: center;
+          display: -ms-flexbox;
+          display: flex;
+          font-size: 1.875rem;
+          -ms-flex-pack: center;
+          justify-content: center;
+          text-align: center;
+          width: 70px;
+      }
+      .info-box .info-box-content {
+          -ms-flex: 1;
+          flex: 1;
+          padding: 5px 10px;
+      }
+      .info-box .info-box-text, .info-box .progress-description {
+          display: block;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+      .info-box .info-box-number {
+          display: block;
+          font-weight: 700;
+      }
+    </style>
     @yield('css')
     <title>Document</title>
 </head>
@@ -22,18 +65,26 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/dashboard">Accueil</a>
+                <a class="nav-link" id="Home" aria-current="page" href="/dashboard">Accueil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{route('discour.index')}}">Discours</a>
+                <a class="nav-link" id="Discours" href="{{route('discour.index')}}">Discours</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Discours URL</a>
+                <a class="nav-link" id="URL" href="{{route('listeUrl.index')}}">Discours URL</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Discours Sahara</a>
+                <a class="nav-link" id="Sahara" href="{{route('sahara.index')}}">Discours Sahara</a>
               </li>
             </ul>
+            <ul class="nav justify-content-end" style=" margin-right: 5%; ">
+                <li class="nav-item">
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button class="btn btn-outline-secondary btn-sm" type="submit"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                    </form>
+                </li>
+              </ul>
           </div>
         </div>
       </nav>
